@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body onload="entrar()">
+    <h1 id="titulo">Manejo DOM con JavaScript</h1>
+    <div id="mostrar"></div>
+    <br/>
+    Nombre : <input type="text" id="nombre" onchange="convertir()">
+    <script>
+         
+        /*
+        document.getElementById('titulo').onclick = cambiarTexto;
+       function cambiarTexto() {
+        document.getElementById('titulo').innerHTML = 'nuevo titulo';
+       }
+       */
+       function entrar() {
+           document.getElementById('nombre').addEventListener('focus' , (evento) => {
+                console.log('entro');
+                evento.target.style.background = 'yellow';
+           });
+           document.getElementById('nombre').addEventListener('blur', (evento) =>{
+                evento.target.style.background = 'white';
+           } );
+           /*function cambiar(evento) {
+               // evento.target nos trae el elemento que vamos a utilizar = this
+                let componente =  evento.target;
+                componente.style.background = 'yellow';
+           }
+           function regresar(evento) {
+                evento.target.style.background='white';
+           }
+           /*
+            alert ('entrando a la pagina web'); 
+           let texto='';
+           if(navigator.cookieEnabled){
+               texto = 'Cookies estan habilitadas';
+           }else{
+               texto = 'Cookies estan inhabilitadas';
+           }
+           console.log(texto);
+           document.getElementById('mostrar').innerHTML = texto;
+           */
+       }
+        function convertir(){
+            let nombre = document.getElementById('nombre');
+            nombre.value = nombre.value.toUpperCase();
+        }
+        /*
+        function rojo() {
+            console.log('cambio a rojo');
+            let titulo = document.getElementById('titulo');
+            titulo.style.color = 'red';
+        }
+
+        function azul() {
+            console.log('cambio a azul');
+            let titulo = document.getElementById('titulo');
+            titulo.style.color = 'blue';    
+        }
+        function verde() {
+            console.log('cambio a verde');
+            let titulo = document.getElementById('titulo');
+            titulo.style.color = 'green';
+        }
+        */
+    </script>
+</body>
+</html>
